@@ -12,6 +12,7 @@
 #include <net/ip.h>
 #include <net/netfilter/nf_conntrack.h>
 #include <net/netfilter/nf_flow_table.h>
+#include <net/netfilter/nf_conntrack_helper.h>
 
 static struct nf_flowtable nf_flowtable;
 static HLIST_HEAD(hooks);
@@ -242,6 +243,7 @@ flowoffload_tg(struct sk_buff *skb, const struct xt_action_param *par)
 	struct nf_flow_route route;
 	struct flow_offload *flow;
 	struct nf_conn *ct;
+	const struct nf_conn_help *help;
 
 	if (xt_flowoffload_skip(skb))
 		return XT_CONTINUE;
@@ -261,7 +263,8 @@ flowoffload_tg(struct sk_buff *skb, const struct xt_action_param *par)
 		return XT_CONTINUE;
 	}
 
-	if (test_bit(IPS_HELPER_BIT, &ct->status))
+        help = nfct_help(ct);
+	if (help)
 		return XT_CONTINUE;
 
 	if (ctinfo == IP_CT_NEW ||
