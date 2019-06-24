@@ -34,7 +34,7 @@ endef
 
 define Package/uhttpd
   $(Package/uhttpd/default)
-  DEPENDS:=+libubox +libblobmsg-json +libjson-script +libjson-c
+  DEPENDS:=+libubox +libblobmsg-json +libjson-script
 endef
 
 define Package/uhttpd/description
