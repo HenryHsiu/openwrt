@@ -547,18 +547,6 @@ sub gen_package_auxiliary() {
 				print "Package/$n/abiversion = $abiv\n";
 			}
 		}
-		my %depends;
-		foreach my $dep (@{$pkg->{depends} || []}) {
-			if ($dep =~ m!^\+?(?:[^:]+:)?([^@]+)$!) {
-				$depends{$1}++;
-			}
-		}
-		my @depends = sort keys %depends;
-		if (@depends > 0) {
-			foreach my $n (@{$pkg->{provides}}) {
-				print "Package/$n/depends = @depends\n";
-			}
-		}
 	}
 }
 
