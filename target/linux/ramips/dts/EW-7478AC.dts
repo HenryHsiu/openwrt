@@ -6,7 +6,7 @@
 
 / {
 	compatible = "edimax,ew-7478ac", "ralink,mt7620a-soc";
-	model = "Edimax EW-7478AC";
+	model = "Edimax EW-7478ac";
 
 	leds {
 		compatible = "gpio-leds";
