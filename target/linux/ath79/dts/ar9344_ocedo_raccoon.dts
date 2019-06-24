@@ -162,6 +162,7 @@
 
 	phy0: ethernet-phy@0 {
 		reg = <0>;
+		phy-mode = "rgmii";
 	};
 };
 
@@ -172,6 +173,6 @@
 
 	mtd-mac-address = <&art 0x0>;
 
-	phy-mode = "rgmii-id";
+	phy-mode = "rgmii";
 	phy-handle = <&phy0>;
 };
