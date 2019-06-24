@@ -12,7 +12,6 @@ define Package/xfrm/Default
   SECTION:=net
   CATEGORY:=Network
   MAINTAINER:=Andre Valentin <avalentin@marcant.net>
-  PKGARCH:=all
 endef
 
 define Package/xfrm

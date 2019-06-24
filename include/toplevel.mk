@@ -145,7 +145,7 @@ xconfig: scripts/config/qconf prepare-tmpinfo FORCE
 	fi
 	$< Config.in
 
-prepare_kernel_conf: .config toolchain/install FORCE
+prepare_kernel_conf: .config FORCE
 
 ifeq ($(wildcard staging_dir/host/bin/quilt),)
   prepare_kernel_conf:
